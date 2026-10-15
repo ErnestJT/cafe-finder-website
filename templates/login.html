@@ -1,0 +1,6 @@
+{% extends "base.html" %}
+
+{% block content %}
+<p class="flash">{{ get_flashed_messages()[0] }}</p>
+{{ render_form(login_form, novalidate=True)}}
+{% endblock %}

@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+{% block title %}Cafe Finder{% endblock %}
+
+{% block content %}
+<section id="hero-page">
+    <img src = "{{ url_for('static', filename='images/cafe_pic.png')}}" alt = "A picture of a coffee shop" >
+    <div id = "hero-div">
+        <h1>AMAZING<br>CAFES</h1>
+        <h2>JUST FOR <span class ="special-char">YOU</span></h2>
+        <a class="btn btn-lg btn-primary" href="/search">Start Finding <img src = "{{ url_for('static', filename='images/search_icon.png')}}" alt = "Magnifying Glass Icon" /></a>
+    </div>
+</section>
+<section id="top-cafes">
+    <h1>TOP CAFES</h1>
+    
+    <div id = "top-cafes-group">
+        <!-- <div class="card" style="width: 18rem;">
+            <img src="{{ url_for('static', filename = 'images/cafe_pic.png') }}" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Cabinet Cafe</h5>
+                <a href="#" class="btn btn-primary">Learn more</a>
+                <span>9.8/10 ⭐⭐⭐</span>
+            </div>
+        </div> -->
+        {% for cafe in random_cafes %}
+            <div class="card" style="width: 18rem;">
+                <img src="{{ cafe.img_url }}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">{{ cafe.name }}</h5>
+                    <a href="#" class="btn btn-primary">Learn more</a>
+                    <span>9.8/10 ⭐⭐⭐</span>
+                </div>
+            </div>
+        {% endfor %}
+        <!-- <div class="card" style="width: 18rem;">
+            <img src="{{ url_for('static', filename = 'images/cafe_pic.png') }}" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Handle Cafe</h5>
+                <a href="#" class="btn btn-primary">Learn more</a>
+                <span>9.6/10 ⭐⭐⭐</span>
+            </div>
+        </div>
+        <div class="card" style="width: 18rem;">
+            <img src="{{ url_for('static', filename = 'images/cafe_pic.png') }}" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Noodle Cafe</h5>
+                <a href="#" class="btn btn-primary">Learn more</a>
+                <span>9.4/10 ⭐⭐⭐</span>
+            </div>
+        </div> -->
+    </div>
+    <br>
+    <br>
+    <br>
+    {% if current_user.is_authenticated %}
+        <a class="btn btn-secondary" href="{{ url_for('log_out')}}">Logout</a>
+    {% endif %}
+</section>
+{% endblock %}

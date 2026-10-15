@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+
+{% block title %}Cafe Finder{% endblock %}
+
+{% block content %}
+<section id="search-page">
+    <h1>THE BEST CAFES IN LONDON</h1>
+    {% if current_user.is_authenticated %}
+    <div id="new-cafe-button">
+        <a class="btn btn-primary" href="{{ url_for('create_cafe') }}">Create New Cafe</a>
+    </div>
+    {% endif %}
+    <div id="search-container">
+        <div style="grid-area: box-1" id="filter-search">
+            {{ render_form(search_form) }}
+        </div>
+        <div style="grid-area: box-2" id="cafe-results">
+
+            {% if not cafes %}
+                No cafe found matching your filters.
+            {% else %}
+                {% for cafe in cafes %}
+                    <div class="card mb-3" style="max-width: 540px;">
+                        <div class="row g-0">
+                            <div class="col-md-4">
+                                <img src="{{ cafe.img_url }}" class="img-fluid rounded-start" alt="...">
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{ cafe.name }}</h5>
+                                    <p class="card-text">Found in: {{ cafe.location}}</p>
+                                    <p class="card-text"><small class="text-muted">9.8/10 ⭐</small></p>
+                                    <a href="{{ url_for('show_cafe', cafe_id=cafe.id)}}" class="btn btn-primary">Learn more</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            {% endif %}
+
+            
+            
+            
+        </div>
+    </div>
+</section>
+{% endblock %}

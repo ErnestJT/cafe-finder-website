@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content %}
+    {% if create_form %}
+        {{ render_form(create_form)}}
+    {% endif %}
+    {% if edit_form %}
+        {{ render_form(edit_form)}}
+        <a class="btn btn-primary" href="{{ url_for('delete_cafe', cafe_id=cafe_id) }}">Delete Cafe</a>
+    {% endif %}
+{% endblock %}

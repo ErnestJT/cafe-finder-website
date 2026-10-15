@@ -1,0 +1,201 @@
+:root {
+  --primary-color: #102f75;
+  --second-color: #0cc0df;
+  --first-font: 'Atkinson Hyperlegible','Arial', sans-serif;
+  --second-font: 'Roboto Slab', 'Arial', sans-serif;
+
+}
+
+h1 {
+    font-weight: bold;
+    font-size: clamp(1.8rem, 10vw, 5rem);
+}
+
+#nav-bar {
+    padding: 0px;
+    background-color: var(--primary-color);
+    font-family: var(--first-font);
+    width: 100%;
+    max-width: 100%;
+
+    display: flex;
+    justify-content: flex-end;
+}
+
+header {
+    width: 100%;
+}
+
+#nav-bar span {
+    color:white;
+    font-size: clamp(1rem, 10vw, 2rem);
+}
+
+#hero-page{
+    display: flex;
+    flex-direction: column;
+
+    height:600px;
+
+    color:white;
+    
+    justify-content: center;
+    
+    font-family: var(--second-font);
+    text-align:left;
+
+    overflow: hidden;
+}
+
+#hero-page > img {
+    object-fit: cover;
+    max-width: 100%;
+    width: 100%;
+    height: 100%;
+}
+
+#hero-div {
+    position: absolute;
+    margin-left: 10%
+}
+
+#hero-div h1 {
+    color: var(--second-color);
+}
+
+#hero-div a {
+    height: 50px;
+}
+
+#hero-div a img {
+    max-height: 35px;
+}
+
+.special-char{
+    color: var(--second-color);
+}
+
+#top-cafes h1 {
+    font-weight: bold;
+    font-size: clamp(1.8rem, 10vw, 6rem);
+    text-align: center;
+    color: var(--second-color);
+    font-family: var(--second-font);
+}
+
+
+#top-cafes-group {
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+    row-gap: 5vh;
+    align-items: center;
+    justify-items: center;
+    font-family: var(--first-font);
+}
+
+.card-img-top{
+    height: 200px;
+    object-fit: cover;
+}
+
+.card-body{
+    border: solid black 2px;
+}
+
+.img-fluid {
+    height: 150px;
+    object-fit: cover;
+    width: 100%;
+}
+
+.card-body span {
+    display: inline;
+    font-size: 1.1rem;
+    padding: 6px;
+}
+
+#search-page {
+    margin: 5%;
+}
+
+#search-page h1{
+    font-size: clamp(1.8rem, 10vw, 4rem);
+}
+
+#search-container {
+    display:grid;
+
+    grid-template-areas: 
+    "box-1 box-2 box-2"
+    "box-1 box-2 box-2";
+    
+}
+
+#filter-search {
+    border-right: 2px solid black;
+    font-family: var(--second-font);
+}
+
+#cafe-results {
+    font-family: var(--second-font);
+    height: 400px;
+    overflow-y: scroll;
+}
+
+#cafe-results .card-title {
+    font-family: var(--first-font);
+}
+
+#cafe-grid {
+    /* background-color:peachpuff; */
+    display:grid;
+
+    grid-template-rows: 200px 200px;
+
+    margin: 5%;
+}
+
+#cafe-grid img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block; 
+    
+}
+
+#cafe-details {
+    display:grid;
+
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 2fr 2fr;
+
+    font-family: var(--second-font);
+    justify-items: center;
+    row-gap: 20px;
+}
+
+#cafe-details a {
+    width: 100px;
+    height: 30px;
+}
+
+.cafe-title {
+    font-family: var(--first-font);
+    grid-column: 1/span 4;
+
+    justify-self: left;
+}
+
+.span-bold {
+    font-weight: bolder;
+}
+
+.flash {
+    font-family: var(--second-font);
+    color:red;
+}
+
+#new-cafe-button {
+    margin-bottom: 2em;
+}
+

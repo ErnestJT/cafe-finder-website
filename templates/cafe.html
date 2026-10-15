@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section id="cafe-grid">
+    <div><img src="{{ cafe.img_url }}"></div>
+    <div id="cafe-details">
+        <h2 class="cafe-title">{{ cafe.name }}</h2>
+        <p>Location: <span class="span-bold">{{ cafe.location }}</span></p>
+        <p>Has Sockets: <span class="span-bold">{{ cafe.has_sockets }}</span></p>
+        <p>Has Toilet: <span class="span-bold">{{ cafe.has_toilet }}</span></p>
+        <p>Has Wifi: <span class="span-bold">{{ cafe.has_wifi }}</span></p>
+        <a href="{{ url_for('search_cafes')}}" class="btn btn-primary">Return</a>
+        <p>Can Take Calls: <span class="span-bold">{{ cafe.can_take_calls }}</span></p>
+        <p>Seats: <span class="span-bold">{{ cafe.seats }}</span></p>
+        <p>Coffee: <span class="span-bold">{{cafe.coffee_price}}</span></p>
+    </div>
+    {% if current_user.is_authenticated %}
+    <a class="btn btn-primary" href="{{ url_for('edit_cafe', cafe_id=cafe.id)}}">Edit Cafe</a>
+    {% endif %}
+</section>
+{% endblock %}
